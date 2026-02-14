@@ -73,7 +73,15 @@ Start the app:
 npx expo start
 ```
 
-Then run on a device/simulator (e.g. press `i` for iOS or `a` for Android). Use a **development build** (`npx expo run:ios` / `npx expo run:android`) for full background recording and native config from the custom plugin.
+Then run on a device/simulator (e.g. press `i` for iOS or `a` for Android).
+
+**If you see "PlatformConstants could not be found" (red screen):** Expo Go can hit this with SDK 54. Use a **development build** instead:
+
+1. Install [JDK 17](https://adoptium.net/) and ensure `JAVA_HOME` is set.
+2. Run `npx expo run:android` (or `npx expo run:ios` on Mac). This builds a native app with your config.
+3. The built app will run on the emulator/device and avoid the TurboModule error.
+
+A development build is also required for full background recording and the custom config plugin.
 
 ### 4. Push notifications (optional)
 
